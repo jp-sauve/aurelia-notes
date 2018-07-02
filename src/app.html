@@ -1,0 +1,18 @@
+<template>
+  <h1>${heading}</h1>
+  <form submit.trigger="addNote()">
+    <input type="text" value.bind="noteText">
+    <button type="submit">Add Note</button>
+  </form>
+  <div>
+    <ul>
+      <li repeat.for="note of notes">
+        <input type="checkbox" checked.bind="note.done">
+        <span css="text-decoration: ${note.done ? 'line-through' : 'none'}">
+          ${note.text}
+        </span>
+        <button click.trigger="removeNote(note)">Erase</button>
+      </li>
+    </ul>
+  </div><button click.trigger="clearAll()">Clear All</button>
+</template>
